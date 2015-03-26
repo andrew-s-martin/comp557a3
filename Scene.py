@@ -137,6 +137,7 @@ class Scene:
      
       #you need to loop over the lights and return those that are visible from the position in result
       visibleLights = []
+      EPS_DISTANCE = 1e-9
       #TODO ====== BEGIN SOLUTION =====
       for light in self.lights:
           # Create a ray from intersection point to light
@@ -146,7 +147,6 @@ class Scene:
           intersect = self.get_nearest_object_intersection(ray)
           if dist < intersect.t:
               visibleLights.append(light)
-
       # ===== END SOLUTION HERE =====
       return visibleLights
 
