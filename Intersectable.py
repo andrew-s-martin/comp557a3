@@ -338,10 +338,6 @@ class SceneNode:
             isect = res
     # Return isect values back to scene coordinates
     if isect.is_valid_intersection():
-        # n_tail = isect.p + isect.n
-        # isect.p = np.dot(self.M, np.append(isect.p, 1.0))[:3]
-        # n_tail = np.dot(self.M, np.append(n_tail, 1.0))[:3]
-        # isect.n = GT.normalize(n_tail - isect.p)
         isect.p = np.dot(self.M, np.append(isect.p, 1.0))[:3]
         isect.n = np.dot(np.transpose(self.Minv), np.append(isect.n, 1.0))[:3]
         isect.n = GT.normalize(isect.n)
